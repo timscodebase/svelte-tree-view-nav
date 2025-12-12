@@ -1,15 +1,15 @@
 <script>
-  import { page } from "$app/stores";
+import { page } from "$app/stores";
 
-  // Receive the tree data
-  let { tree } = $props();
+// Receive the tree data
+const { tree } = $props();
 
-  // Helper to check if a node contains the active page (to auto-expand)
-  function isActive(node) {
-    if (node.href === $page.url.pathname) return true;
-    if (node.children) return node.children.some(isActive);
-    return false;
-  }
+// Helper to check if a node contains the active page (to auto-expand)
+function isActive(node) {
+	if (node.href === $page.url.pathname) return true;
+	if (node.children) return node.children.some(isActive);
+	return false;
+}
 </script>
 
 <nav class="tree-nav">
